@@ -1,0 +1,67 @@
+/* color pallette https://goo.gl/EnpMdo */
+
+@import url('https://fonts.googleapis.com/css?family=Old+Standard+TT|Oswald');
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	font-family: 'Old Standard TT', serif;
+	font-size: 18px;
+	color: #555;
+
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Oswald', sans-serif;
+}
+html, body {
+	height: 100%;
+	width: 100%;
+}
+.container {
+	margin: 0 auto;
+	padding: 15px;
+}
+.row {
+	content: "";
+	clear: both;
+	display: table;
+}
+[class*="col-"] {
+	float: left;
+	padding: 15px;
+	border: 1px solid red;
+}
+.col-1 {
+	width: 50%;
+}
+.col-2 {
+	width: 100%;
+}
+main {
+	background-image: url(../images/bg-nps-logo.png);
+	background-attachment: fixed;
+	background-position:  center; /* same as header height */
+	background-repeat: no-repeat;
+
+	margin-top: 50px; /* same as header height */
+
+	height: 100%;
+	width: 100%;
+}
+header {
+	position: fixed;
+	top: 0;
+	height: 50px;
+	width: 100%;
+	background-color: #79986A;
+	color: #fff;
+}
+header .h1 {
+	font-size: 3em;
+}
+
+.badge {
+
+}
