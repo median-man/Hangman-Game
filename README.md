@@ -11,12 +11,13 @@ This must satisfy the specifications described in the homework instructions foun
 * Displays number of guesses remaining.
 * Displayes a list of the letters already guessed.
 * Automatically choose another word when the user wins/loses the game and starts the next round.
+* Prevents user from guessing the same letter twice.
 
 ### Due Date:
 11:59 PM on Thursday, August 17, 2017.
 
 ## To Do:
-* watch demo video
+* ~~watch demo video~~
 * plan out components of project
 * wireframe gui
 * make gui
@@ -24,3 +25,19 @@ This must satisfy the specifications described in the homework instructions foun
 * make refinements/add features (Refer back to \"bonuses" in the homework instructions.)
 * debug
 * repeat until due date
+
+## Hangman Game Elements
+
+### Output
+* letters/place holders for word
+.* number letter/placeholders === length of the word
+.* uses \_ for unknown letters per specs
+* number of guesses remaining
+* number of wins
+* letters already guessed
+
+### Inputs
+* letter (user)
+* pool of words (data)
+* starting number of guesses
+.* hard coded number or calculated from word?
