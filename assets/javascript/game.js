@@ -9,7 +9,7 @@ var arrUsedLetters, remGuesses, curWord;
 // web page loads in
 // 		all values set to initial
 //			answer = remove a random word from the word list
-//		message displays: "Press any key to get started!"
+
 //	user presses a key
 //		if (key pressed is a letter && letter pressed is not in
 //			arrUsedLetters)
@@ -27,15 +27,11 @@ var arrUsedLetters, remGuesses, curWord;
 //	user wins game
 //		increment wins
 //		answer = random word removed from word list
-//		message displays: "Press any key to get started!"
 //		arrUsedLetters = []
 //		remGuesses = startingGuesses
 //		display game values
 
 //	user loses game
-//		display message "You ran out of guesses. Press any
-//			key to start next round."
-//		display solution
 //		answer = random word removed from word list
 //		arrUsedLetters = []
 //		remGuesses = startingGuesses
