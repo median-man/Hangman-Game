@@ -7,12 +7,13 @@ var arrUsedLetters, remGuesses, curWord;
 
 // user navigates to web page
 // web page loads in
-// 		all values set to initial
+//		initialize new round
 //			answer = remove a random word from the word list
 
 //	user presses a key
 //		if (key pressed is a letter && letter pressed is not in
 //			arrUsedLetters)
+//			handleGuess()
 //			decrement remGuesses
 //			add letter to arrUsedLetters
 //			if letter is in the word
@@ -27,15 +28,21 @@ var arrUsedLetters, remGuesses, curWord;
 //	user wins game
 //		increment wins
 //		answer = random word removed from word list
-//		arrUsedLetters = []
-//		remGuesses = startingGuesses
-//		display game values
+//		initialize new round
 
 //	user loses game
 //		answer = random word removed from word list
+//		initialize new round
+
+// initialize new round
 //		arrUsedLetters = []
+//		answer = random word removed from word list
 //		remGuesses = startingGuesses
-//		display game values	
+//		curWord = 
+//		display game values
+
+//	handleGuess(letter)
+//		
 
 function renderGameValues(arrWord, remGuesses, wins, arrUsedLetters) {
 // renders the game to the page
