@@ -1,4 +1,25 @@
+var arrWordList = ["Yosemite"];
+var answer = "";
 var startingGuesses = 13;
+var wins = 0;
+
+var arrUsedLetters, remGuesses, curWord;
+
+// user navigates to web page
+// web page loads in
+// 		all values set to initial
+//			answer = remove a random word from the word list
+//		message displays: "Press any key to get started!"
+//	user presses a key
+//		if key pressed is a letter
+//			if letter is in the word
+//				do things
+//			else letter is not in the word
+//				do other things
+//	user wins game
+//		increment wins
+//		initialize values
+//		
 
 // renders the game to the page
 // paremeters:
