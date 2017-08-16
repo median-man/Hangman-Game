@@ -11,19 +11,8 @@ var arrUsedLetters, remGuesses, curWord;
 //			answer = remove a random word from the word list
 
 //	user presses a key
-//		if (key pressed is a letter && letter pressed is not in
-//			arrUsedLetters)
-//			handleGuess()
-//			decrement remGuesses
-//			add letter to arrUsedLetters
-//			if letter is in the word
-//				update curWord
-//		if curWord === answer
-//			user wins round
-//		else if remGuesses === 0
-//			user loses game
-//		else
-//			update displayed game values
+//		if key pressed is a letter
+//			handleGuess(lcase letter pressed)
 
 //	user wins game
 //		increment wins
@@ -42,6 +31,17 @@ var arrUsedLetters, remGuesses, curWord;
 //		display game values
 
 //	handleGuess(letter)
+//     	if letter pressed is not in arrUsedLetters
+//			decrement remGuesses
+//			add letter to arrUsedLetters
+//			if letter is in the word
+//				update curWord
+//			if curWord === answer
+//				user wins round
+//			else if remGuesses === 0
+//				user loses game
+//			else
+//				update displayed game values
 //		
 
 function renderGameValues(arrWord, remGuesses, wins, arrUsedLetters) {
