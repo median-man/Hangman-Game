@@ -48,4 +48,6 @@
      font-size: 2em;
  }
 
- .badge {}
+ #current-word {
+     letter-spacing: .5em;
+ }
