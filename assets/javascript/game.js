@@ -47,7 +47,7 @@ var arrUsedLetters, remGuesses, curWord;
 function renderGameValues(arrWord, remGuesses, wins, arrUsedLetters) {
 // renders the game to the page
 // paremeters:
-//		arrWord:     string displaying the current known letters and blanks
+//		arrWord:     array of strings containing solved letters and underscores for current word
 //		remGuesses:  integer containing the guesses remaining
 // 		wins:        integer for number of wins
 //      usedLetters: string containing all the used letters
@@ -65,6 +65,15 @@ function renderGameValues(arrWord, remGuesses, wins, arrUsedLetters) {
 	document.querySelector("#wins").textContent = wins;
 	document.querySelector("#letters-used").textContent = usedLetters;
 }
+
+document.onkeyup = function(event) {
+//	user presses a key
+//		if key pressed is a letter
+//			handleGuess(lcase letter pressed)
+
+	console.log(String.fromCharCode(event.keyCode));
+
+};
 
 // --------------------------------
 // ---------- tests ---------------
