@@ -1,4 +1,4 @@
-var arrWordList = ["Yosemite"];
+var arrWordList = ["Yosemite", "Grand Canyon", "Yellowstone", "Acadia", "Canyon Lands"];
 var answer = "";
 var startingGuesses = 13;
 var wins = 0;
@@ -11,23 +11,44 @@ var arrUsedLetters, remGuesses, curWord;
 //			answer = remove a random word from the word list
 //		message displays: "Press any key to get started!"
 //	user presses a key
-//		if key pressed is a letter
+//		if (key pressed is a letter && letter pressed is not in
+//			arrUsedLetters)
+//			decrement remGuesses
+//			add letter to arrUsedLetters
 //			if letter is in the word
-//				do things
-//			else letter is not in the word
-//				do other things
+//				update curWord
+//		if curWord === answer
+//			user wins round
+//		else if remGuesses === 0
+//			user loses game
+//		else
+//			update displayed game values
+
 //	user wins game
 //		increment wins
-//		initialize values
-//		
+//		answer = random word removed from word list
+//		message displays: "Press any key to get started!"
+//		arrUsedLetters = []
+//		remGuesses = startingGuesses
+//		display game values
 
+//	user loses game
+//		display message "You ran out of guesses. Press any
+//			key to start next round."
+//		display solution
+//		answer = random word removed from word list
+//		arrUsedLetters = []
+//		remGuesses = startingGuesses
+//		display game values	
+
+function renderGameValues(arrWord, remGuesses, wins, arrUsedLetters) {
 // renders the game to the page
 // paremeters:
 //		arrWord:     string displaying the current known letters and blanks
 //		remGuesses:  integer containing the guesses remaining
 // 		wins:        integer for number of wins
 //      usedLetters: string containing all the used letters
-function renderGame(arrWord, remGuesses, wins, arrUsedLetters) {
+
 	// unsolved letters in arrWord are represented 
 	// by underscores
 	var currentWord = arrWord.join(" ");
@@ -56,5 +77,5 @@ function renderGame(arrWord, remGuesses, wins, arrUsedLetters) {
 // testWord = testWord.split(",");
 // testUsedLetters = testUsedLetters.split(",");
 
-// renderGame(testWord,testRemGuesses, 
+// renderGameValues(testWord,testRemGuesses, 
 // 	testWins, testUsedLetters);
