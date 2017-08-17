@@ -1,6 +1,5 @@
 // === variables ===
-var images = [];
-var answer = "";
+var oAnswer;
 var startingGuesses = 13;
 var wins = 0;
 
@@ -10,12 +9,12 @@ var arrUsedLetters, remGuesses, curWord;
 function initNewRound() {
     // resets the values to start a new round
     arrUsedLetters = [];
-    answer = arrWordList.pop();
+    oAnswer = data.pop();
     remGuesses = startingGuesses;
-    if (!answer) {
+    if (!oAnswer) {
         alert("All out of words! Refresh your browser to keep playing.");
     } else {
-        curWord = "_".repeat(answer.length).split("");
+        curWord = "_".repeat(oAnswer.word.length).split("");
     }
 }
 
@@ -24,17 +23,17 @@ function handleGuess(letter) {
     if (arrUsedLetters.indexOf(letter) === -1) {
         remGuesses--;
         arrUsedLetters.push(letter);
-        if (answer.toLowerCase().indexOf(letter) > -1) {
-            for (var i = 0; i < answer.length; i++) {
-                if (answer[i].toLowerCase() === letter) {
-                    // replace _ with letter from answer 
+        if (oAnswer.word.toLowerCase().indexOf(letter) > -1) {
+            for (var i = 0; i < oAnswer.word.length; i++) {
+                if (oAnswer.word[i].toLowerCase() === letter) {
+                    // replace _ with letter from oAnswer 
                     // (this way case is correct)
-                    curWord[i] = answer[i];
+                    curWord[i] = oAnswer.word[i];
                 }
             }
         }
         // check if user has won or lost
-        if (curWord.join("") === answer) {
+        if (curWord.join("") === oAnswer.word) {
             wins++;
             renderGameValues(curWord, remGuesses, wins, arrUsedLetters);
             initNewRound();
