@@ -54,6 +54,42 @@ function initNewRound() {
 	renderGameValues(curWord, remGuesses, wins, arrUsedLetters);
 }
 
+function handleGuess(letter) {
+//     	if letter pressed is not in arrUsedLetters
+	if ( arrUsedLetters.indexOf(letter) === -1 ) {	
+//			decrement remGuesses
+		remGuesses--;
+//			add letter to arrUsedLetters
+		arrUsedLetters.push(letter);
+//			if letter is in the word
+		if ( answer.indexOf(letter) > -1) {
+//				update curWord
+			
+		}
+
+		// check if user has won or lost
+		if ( curWord.join("") === answer ) {
+			handleWin();
+		} else if ( remGuesses === 0 ) {
+			handleLoss();			
+		} else {
+			renderGameValues(curWord, remGuesses, wins, arrUsedLetters);
+		}
+//			else
+//				update displayed game values
+	}
+	
+}
+function handleLoss() {
+	initNewRound();	
+}
+
+function handleWin() {
+	// increment wins and start a new round
+	wins++;
+	initNewRound();
+}
+
 function renderGameValues(arrWord, remaingGuesses, winCount, arrGuesses) {
 // renders the game to the page
 // paremeters:
@@ -83,8 +119,7 @@ document.onkeyup = function(event) {
 
 	// keys a through z
 	if ( event.keyCode >= 65 && event.keyCode <= 90 ){
-		// handleGuess(event.key.toLowerCase());
-		console.log(event.key);
+		handleGuess(event.key.toLowerCase());
 	}
 
 };
