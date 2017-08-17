@@ -35,6 +35,7 @@ function handleGuess(letter) {
         // check if user has won or lost
         if (curWord.join("") === oAnswer.word) {
             wins++;
+            showImage(oAnswer.image, oAnswer.alt);
             renderGameValues(curWord, remGuesses, wins, arrUsedLetters);
             initNewRound();
         } else if (remGuesses === 0) {
@@ -42,6 +43,12 @@ function handleGuess(letter) {
         }
         renderGameValues(curWord, remGuesses, wins, arrUsedLetters);
     }
+}
+
+function hideImage() {
+    var imgEl = document.querySelector("img");
+    var hideClass = "hidden";
+    imgEl.classList.add
 }
 
 function renderGameValues(arrWord, remaingGuesses, winCount, arrGuesses) {
@@ -65,8 +72,9 @@ function showImage(src, alt) {
     // renders  img for string src and string alt and 
     // unhides the image
     var hideClass = "hidden";
+    var imgPath = "assets/images/";
     var imgEl = document.querySelector("img");
-    imgEl.setAttribute("src", src);
+    imgEl.setAttribute("src", imgPath + src);
     imgEl.setAttribute("alt", alt);
     imgEl.classList.remove(hideClass);
 }
