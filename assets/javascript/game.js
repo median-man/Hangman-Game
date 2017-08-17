@@ -95,10 +95,10 @@ function handleGuess(letter) {
             image.set(oAnswer.image, oAnswer.alt);
             image.show();
             view.render(curWord, remGuesses, wins, arrUsedLetters);
-            initNewRound();
+            game.newRound();
         } else if (remGuesses === 0) {
             image.hide();
-            initNewRound();
+            game.newRound();
         }
         view.render(curWord, remGuesses, wins, arrUsedLetters);
     }
@@ -114,6 +114,6 @@ document.onkeyup = function(event) {
 };
 
 // === code below this point runs on initial load ===
-initNewRound();
+game.newRound();
 view.render(curWord, remGuesses, wins, arrUsedLetters);
 
