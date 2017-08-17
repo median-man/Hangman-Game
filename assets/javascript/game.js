@@ -3,7 +3,7 @@ var startingGuesses = 13;
 
 /*
 view
-all aspects and functions of the display
+provides methods for manipulating the view
 */
 var view = (function() {
     var image = ( function() {
@@ -64,6 +64,13 @@ controls game and contains all game logic
 var game = (function() {
     var oAnswer, arrUsedLetters, remGuesses, curWord, wins;
     var wins = 0;
+    var getWord = function () {
+        // returns an object from words array at random. object
+        // is removed from the array. returns an empty array
+        // if words.length is 0.
+        var i = Math.floor(Math.random()*words.length);
+        return words.splice(i, 1)[0];
+    }
     var handleGuess = function (letter) {
         // handles letter guessed by user
         if (arrUsedLetters.indexOf(letter) === -1) {
@@ -94,7 +101,7 @@ var game = (function() {
     var newRound = function() {
         // resets the values to start a new round
         arrUsedLetters = [];
-        oAnswer = data.pop();
+        oAnswer = getWord();
         remGuesses = startingGuesses;
         if (!oAnswer) {
             // all words from data exhausted. alert the user and reload the page.
@@ -106,6 +113,7 @@ var game = (function() {
     }
     return {
         run: function() {
+            // starts the app
 
             // listen for letter keys
             document.onkeyup = function(event) {
@@ -120,6 +128,5 @@ var game = (function() {
     };
 })();
 
-// start the game
 game.run();
 
