@@ -17,14 +17,7 @@ This must satisfy the specifications described in the homework instructions foun
 11:59 PM on Thursday, August 17, 2017.
 
 ## To Do:
-* ~~watch demo video~~
-* plan out components of project
-* wireframe gui
-* make gui
-* publish initial version
-* make refinements/add features (Refer back to \"bonuses" in the homework instructions.)
-* debug
-* repeat until due date
+* apply styles
 
 ## Hangman Game Elements
 
