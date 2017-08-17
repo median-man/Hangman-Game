@@ -61,6 +61,16 @@ function renderGameValues(arrWord, remaingGuesses, winCount, arrGuesses) {
     document.querySelector("#letters-used").textContent = usedLetters;
 }
 
+function showImage(src, alt) {
+    // renders  img for string src and string alt and 
+    // unhides the image
+    var hideClass = "hidden";
+    var imgEl = document.querySelector("img");
+    imgEl.setAttribute("src", src);
+    imgEl.setAttribute("alt", alt);
+    imgEl.classList.remove(hideClass);
+}
+
 // === event listenrs ===
 document.onkeyup = function(event) {
     // keys a through z
