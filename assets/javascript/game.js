@@ -65,50 +65,43 @@ var game = {
             alert("All out of words! Refresh your browser to keep playing.");
         } else {
             curWord = "_".repeat(oAnswer.word.length).split("");
-        }
-        
-    }
-};
-
-
-// === functions ===
-function initNewRound() {
-}
-
-function handleGuess(letter) {
-    // handles letter guessed by user
-    if (arrUsedLetters.indexOf(letter) === -1) {
-        remGuesses--;
-        arrUsedLetters.push(letter);
-        if (oAnswer.word.toLowerCase().indexOf(letter) > -1) {
-            for (var i = 0; i < oAnswer.word.length; i++) {
-                if (oAnswer.word[i].toLowerCase() === letter) {
-                    // replace _ with letter from oAnswer 
-                    // (this way case is correct)
-                    curWord[i] = oAnswer.word[i];
+        }        
+    },
+    handleGuess: function (letter) {
+        // handles letter guessed by user
+        if (arrUsedLetters.indexOf(letter) === -1) {
+            remGuesses--;
+            arrUsedLetters.push(letter);
+            if (oAnswer.word.toLowerCase().indexOf(letter) > -1) {
+                for (var i = 0; i < oAnswer.word.length; i++) {
+                    if (oAnswer.word[i].toLowerCase() === letter) {
+                        // replace _ with letter from oAnswer 
+                        // (this way case is correct)
+                        curWord[i] = oAnswer.word[i];
+                    }
                 }
             }
-        }
-        // check if user has won or lost
-        if (curWord.join("") === oAnswer.word) {
-            wins++;
-            image.set(oAnswer.image, oAnswer.alt);
-            image.show();
+            // check if user has won or lost
+            if (curWord.join("") === oAnswer.word) {
+                wins++;
+                image.set(oAnswer.image, oAnswer.alt);
+                image.show();
+                view.render(curWord, remGuesses, wins, arrUsedLetters);
+                game.newRound();
+            } else if (remGuesses === 0) {
+                image.hide();
+                game.newRound();
+            }
             view.render(curWord, remGuesses, wins, arrUsedLetters);
-            game.newRound();
-        } else if (remGuesses === 0) {
-            image.hide();
-            game.newRound();
-        }
-        view.render(curWord, remGuesses, wins, arrUsedLetters);
+        }        
     }
-}
+};
 
 // === event listenrs ===
 document.onkeyup = function(event) {
     // keys a through z
     if (event.keyCode >= 65 && event.keyCode <= 90) {
-        handleGuess(event.key.toLowerCase());
+        game.handleGuess(event.key.toLowerCase());
     }
 
 };
