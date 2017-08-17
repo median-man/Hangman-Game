@@ -1,6 +1,8 @@
 # Hangman-Game
 A National Park themed hangman game.
 
+View published version on [Github Pages](https://median-man.github.io/Hangman-Game/).
+
 ## Specs
 This must satisfy the specifications described in the homework instructions found [here](http://ucsd.bootcampcontent.com/UCSD-Coding-Bootcamp/08-07-2017-UCSD-San-Diego-Class-Repositoy-FSF-FT/blob/master/homework/03-javascript/02-Homework/Instructions/homework-instructions.md).
 
