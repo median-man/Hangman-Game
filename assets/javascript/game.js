@@ -1,6 +1,4 @@
 // === variables ===
-// word list elements must not contain spaces or special characters
-var arrWordList = ["Yosemite", "Acadia", "bison", "Denali", "moose", "mountain", "Olympic", "Lassen",  "Pinnacles", "Redwood", "Cascades", "Rockies", "Sequoia", "Teton"];
 var images = [];
 var answer = "";
 var startingGuesses = 13;
