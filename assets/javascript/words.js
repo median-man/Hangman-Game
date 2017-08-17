@@ -1,5 +1,5 @@
 // word list elements must not contain spaces or special characters
-var data = [
+var words = [
 	{
 		word: "Yosemite",
 		image: "yosemite-1.jpg",
