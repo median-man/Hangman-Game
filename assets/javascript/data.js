@@ -17,13 +17,13 @@ var data = [
 	},
 	{
 		word: "moose",
-		image: "",
-		alt: ""
+		image: "moose.jpg",
+		alt: "Moose standing in tall yellow grass."
 	},
 	{
 		word: "mountain",
-		image: "",
-		alt: ""
+		image: "mountain.jpg",
+		alt: "Mt. Denali covered in snow and shrowded with clouds. Green valley bordered by brown hills in foreground."
 	},
 	{
 		word: "Olympic",
@@ -32,8 +32,8 @@ var data = [
 	},
 	{
 		word: "Pinnacles",
-		image: "",
-		alt: ""
+		image: "pinnacles.jpg",
+		alt: "Ridgeline of rocky craggs."
 	},
 	{
 		word: "Arches",
