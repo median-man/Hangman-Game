@@ -16,6 +16,7 @@ var image = (function() {
     var imgEl = document.querySelector("img");
     return {
         hide: function () {
+            imgEl.classList.add(hideClass);
         },
         show: function () {
             imgEl.classList.remove(hideClass);
@@ -65,6 +66,7 @@ function handleGuess(letter) {
             renderGameValues(curWord, remGuesses, wins, arrUsedLetters);
             initNewRound();
         } else if (remGuesses === 0) {
+            image.hide();
             initNewRound();
         }
         renderGameValues(curWord, remGuesses, wins, arrUsedLetters);

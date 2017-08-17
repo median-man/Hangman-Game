@@ -46,6 +46,10 @@ main {
     padding-top: 15px;
 }
 
+img .img-responsive {
+    padding-bottom: 10px;
+}
+
 
 /* footer styles
 -------------------------------------------------- */
