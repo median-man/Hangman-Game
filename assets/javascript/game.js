@@ -1,142 +1,77 @@
 // === variables ===
-var arrWordList = ["Yosemite", "Grand Canyon", "Yellowstone", "Acadia", "Canyon Lands"];
+var arrWordList = ["Yosemite", "Yellowstone", "Acadia"];
 var answer = "";
 var startingGuesses = 13;
 var wins = 0;
 
 var arrUsedLetters, remGuesses, curWord;
 
-// user navigates to web page
-// web page loads in
-//		initialize new round
-//			answer = remove a random word from the word list
-
-//	user presses a key
-//		if key pressed is a letter
-//			handleGuess(lcase letter pressed)
-
-//	user wins game
-//		increment wins
-//		answer = random word removed from word list
-//		initialize new round
-
-//	user loses game
-//		answer = random word removed from word list
-//		initialize new round
-
-// initialize new round
-//		arrUsedLetters = []
-//		answer = random word removed from word list
-//		remGuesses = startingGuesses
-//		curWord = 
-//		display game values
-
-//	handleGuess(letter)
-//     	if letter pressed is not in arrUsedLetters
-//			decrement remGuesses
-//			add letter to arrUsedLetters
-//			if letter is in the word
-//				update curWord
-//			if curWord === answer
-//				user wins round
-//			else if remGuesses === 0
-//				user loses game
-//			else
-//				update displayed game values
-
 // === functions ===
 function initNewRound() {
-	// resets the values for the round and displays them
-	arrUsedLetters = [];
-	answer = arrWordList.pop();
-	remGuesses = startingGuesses;
-	curWord = "_".repeat(answer.length).split("");
-	renderGameValues(curWord, remGuesses, wins, arrUsedLetters);
+    // resets the values to start a new round
+    arrUsedLetters = [];
+    answer = arrWordList.pop();
+    remGuesses = startingGuesses;
+    if (!answer) {
+        alert("All out of words! Refresh your browser to keep playing.");
+    } else {
+        curWord = "_".repeat(answer.length).split("");
+    }
 }
 
 function handleGuess(letter) {
-//     	if letter pressed is not in arrUsedLetters
-	if ( arrUsedLetters.indexOf(letter) === -1 ) {	
-//			decrement remGuesses
-		remGuesses--;
-//			add letter to arrUsedLetters
-		arrUsedLetters.push(letter);
-//			if letter is in the word
-		if ( answer.indexOf(letter) > -1) {
-//				update curWord
-			
-		}
-
-		// check if user has won or lost
-		if ( curWord.join("") === answer ) {
-			handleWin();
-		} else if ( remGuesses === 0 ) {
-			handleLoss();			
-		} else {
-			renderGameValues(curWord, remGuesses, wins, arrUsedLetters);
-		}
-//			else
-//				update displayed game values
-	}
-	
-}
-function handleLoss() {
-	initNewRound();	
-}
-
-function handleWin() {
-	// increment wins and start a new round
-	wins++;
-	initNewRound();
+    // handles letter guessed by user
+    if (arrUsedLetters.indexOf(letter) === -1) {
+        remGuesses--;
+        arrUsedLetters.push(letter);
+        if (answer.toLowerCase().indexOf(letter) > -1) {
+            for (var i = 0; i < answer.length; i++) {
+                if (answer[i].toLowerCase() === letter) {
+                    // replace _ with letter from answer 
+                    // (this way case is correct)
+                    curWord[i] = answer[i];
+                }
+            }
+        }
+        // check if user has won or lost
+        if (curWord.join("") === answer) {
+            wins++;
+            renderGameValues(curWord, remGuesses, wins, arrUsedLetters);
+            initNewRound();
+        } else if (remGuesses === 0) {
+            initNewRound();
+        }
+        renderGameValues(curWord, remGuesses, wins, arrUsedLetters);
+    }
 }
 
 function renderGameValues(arrWord, remaingGuesses, winCount, arrGuesses) {
-// renders the game to the page
-// paremeters:
-//		arrWord:     array of strings containing solved letters and underscores for current word
-//		remaingGuesses:  integer containing the guesses remaining
-// 		winCount:        integer for number of wins
-//      usedLetters: string containing all the used letters
+    // renders the game to the page
 
-	// unsolved letters in arrWord are represented 
-	// by underscores
-	var currentWord = arrWord.join(" ");
+    // unsolved letters in arrWord are represented 
+    // by underscores
+    var currentWord = arrWord.join(" ");
 
-	// used letters are displayed with ", " between them
-	var usedLetters = arrGuesses.join(", ");
+    // used letters are displayed with ", " between them
+    var usedLetters = arrGuesses.join(", ");
 
-	// update the view
-	document.querySelector("#current-word").textContent = currentWord;
-	document.querySelector("#rem-guesses").textContent = remaingGuesses;
-	document.querySelector("#wins").textContent = winCount;
-	document.querySelector("#letters-used").textContent = usedLetters;
+    // update the view
+    document.querySelector("#current-word").textContent = currentWord;
+    document.querySelector("#rem-guesses").textContent = remaingGuesses;
+    document.querySelector("#wins").textContent = winCount;
+    document.querySelector("#letters-used").textContent = usedLetters;
 }
 
-// === run on initial load ===
-initNewRound();
-
+// === event listenrs ===
 document.onkeyup = function(event) {
-
-	// keys a through z
-	if ( event.keyCode >= 65 && event.keyCode <= 90 ){
-		handleGuess(event.key.toLowerCase());
-	}
+    // keys a through z
+    if (event.keyCode >= 65 && event.keyCode <= 90) {
+        handleGuess(event.key.toLowerCase());
+    }
 
 };
 
-// --------------------------------
-// ---------- tests ---------------
-// --------------------------------
+// === code below this point runs on initial load ===
+initNewRound();
+renderGameValues(curWord, remGuesses, wins, arrUsedLetters);
 
-// --- test renderGame() ---
-// var testAnsw = "Yosemite";
-// var testWord = "_,_,_,e,_,i,t,_";
-// var testRemGuesses = 8;
-// var testWins = 2;
-// var testUsedLetters = "a,e,i,t,j";
-
-// testWord = testWord.split(",");
-// testUsedLetters = testUsedLetters.split(",");
-
-// renderGameValues(testWord,testRemGuesses, 
-// 	testWins, testUsedLetters);
