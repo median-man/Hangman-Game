@@ -1,28 +1,66 @@
- /*color pallette https://goo.gl/EnpMdo*/
+@import url('https://fonts.googleapis.com/css?family=Old+Standard+TT|Oswald');
 
- /*@import url('https://fonts.googleapis.com/css?family=Old+Standard+TT|Oswald');*/
+body {
+    font-family: 'Old Standard TT', serif;
+    background-image: url("../images/bg-mountains-freepik.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-color: rgb(44, 15, 43);
+}
 
- body {
-     font-family: 'Old Standard TT', serif;
-     width: auto;
- }
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3 {
+    font-family: 'Oswald', sans-serif;
+}
 
- h1,
- h2,
- h3,
- .h1,
- .h2,
- .h3 {
-     font-family: 'Oswald', sans-serif;
- }
+#current-word {
+    letter-spacing: .2em;
+}
 
- #current-word {
-     letter-spacing: .3em;
-  
- .container {
-     min-width: 560px;
- }
+.well-sm h5 {
+    margin-top: 0;
+}
+
+
+/* Page header styles
+-------------------------------------------------- */
 
 header {
-     background-color: #506546;
- }
+    background-color: #506546;
+    color: #fff;
+}
+
+header .small {
+    color: #bf8135;
+}
+
+main {
+    padding-top: 15px;
+}
+
+
+/* footer styles
+-------------------------------------------------- */
+
+html {
+    position: relative;
+    min-height: 100%;
+}
+
+body {
+    /* Margin bottom by footer height */
+    margin-bottom: 40px;
+}
+
+.footer {
+    color: #BF2349;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    /* Set the fixed height of the footer here */
+    height: 40px;
+}
