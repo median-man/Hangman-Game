@@ -19,7 +19,6 @@ This must satisfy the specifications described in the homework instructions foun
 11:59 PM on Thursday, August 17, 2017.
 
 ## To Do:
-* add words
 * add images
 
 ## Hangman Game Elements
