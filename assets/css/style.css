@@ -25,6 +25,10 @@ h3,
     margin-top: 0;
 }
 
+.well-sm .lead {
+	margin-bottom: 0;
+}
+
 
 /* Page header styles
 -------------------------------------------------- */
