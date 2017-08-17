@@ -2,25 +2,27 @@
 
  @import url('https://fonts.googleapis.com/css?family=Old+Standard+TT|Oswald');
 
- * {
-     box-sizing: border-box;
- }
-
  body {
      font-family: 'Old Standard TT', serif;
-     font-size: 18px;
-     color: #555;
+     width: auto;
  }
 
  h1,
  h2,
  h3,
- h4,
- h5,
- h6 {
+ .h1,
+ .h2,
+ .h3 {
      font-family: 'Oswald', sans-serif;
  }
 
  #current-word {
-     letter-spacing: .5em;
+     letter-spacing: .3em;
+  
+ .container {
+     min-width: 560px;
+ }
+
+ header .container {
+     background-color: #506546;
  }
