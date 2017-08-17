@@ -2,21 +2,18 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">    
+    <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>National Parks Hangman</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
     <header>
         <div class="container">
-            <div class="page-header">
-                <h1>Hangman: National Parks</h1>
-            </div>
+            <h1>Hangman<span class="small">National Parks</span></h1>
         </div>
     </header>
     <main>
@@ -24,37 +21,41 @@
             <div class="row">
                 <div class="col-md-8">
                     <p class="lead">Press any key to get started!</p>
-                    <div class="well well-lg">
-                        <h3>Current word:</h3>
-                        <p id="current-word" class="h2"></p>
+                    <div class="well well-lg text-center">
+                        <p id="current-word" class="h3"></p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-6 col-md-4">
-                    <h4>Guesses Remaining:</h4>
                     <div class="well well-sm">
-                        <span id="rem-guesses">13</span>
+                        <h5>Guesses Left:</h5>
+                        <p class="text-center" id="rem-guesses">13</p>
                     </div>
                 </div>
                 <div class="col-xs-6 col-md-4">
-                    <h4>Wins:</h4>
                     <div class="well well-sm">
-                        <span id="wins">0</span>
+                        <h5>Wins:</h5>
+                        <p class="text-center" id="wins">0</p>
                     </div>
                 </div>
             </div>
             <div class="row">
                 <div class="col-md-8">
-                    <h3>Letters Used:</h3>
                     <div class="well well-sm">
-                        <p class="h4" id="letters-used"></p>
+                        <h5>Letters Used:</h5>
+                        <p class="h4 text-center" id="letters-used"></p>
                     </div>
                 </div>
             </div>
         </div>
     </main>
-<script src="assets/javascript/game.js"></script>
+    <footer class="footer">
+        <div class="container">
+            <p class="small">&copy; John Desrosiers 2017 | Background image <a href="http://www.freepik.com">Designed by Freepik</a></p>
+        </div>
+    </footer>
+    <script src="assets/javascript/game.js"></script>
 </body>
 
 </html>
