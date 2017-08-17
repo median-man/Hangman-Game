@@ -1,3 +1,4 @@
+// === variables ===
 var arrWordList = ["Yosemite", "Grand Canyon", "Yellowstone", "Acadia", "Canyon Lands"];
 var answer = "";
 var startingGuesses = 13;
@@ -42,14 +43,23 @@ var arrUsedLetters, remGuesses, curWord;
 //				user loses game
 //			else
 //				update displayed game values
-//		
 
-function renderGameValues(arrWord, remGuesses, wins, arrUsedLetters) {
+// === functions ===
+function initNewRound() {
+	// resets the values for the round and displays them
+	arrUsedLetters = [];
+	answer = arrWordList.pop();
+	remGuesses = startingGuesses;
+	curWord = "_".repeat(answer.length).split("");
+	renderGameValues(curWord, remGuesses, wins, arrUsedLetters);
+}
+
+function renderGameValues(arrWord, remaingGuesses, winCount, arrGuesses) {
 // renders the game to the page
 // paremeters:
 //		arrWord:     array of strings containing solved letters and underscores for current word
-//		remGuesses:  integer containing the guesses remaining
-// 		wins:        integer for number of wins
+//		remaingGuesses:  integer containing the guesses remaining
+// 		winCount:        integer for number of wins
 //      usedLetters: string containing all the used letters
 
 	// unsolved letters in arrWord are represented 
@@ -57,21 +67,25 @@ function renderGameValues(arrWord, remGuesses, wins, arrUsedLetters) {
 	var currentWord = arrWord.join(" ");
 
 	// used letters are displayed with ", " between them
-	var usedLetters = arrUsedLetters.join(", ");
+	var usedLetters = arrGuesses.join(", ");
 
 	// update the view
 	document.querySelector("#current-word").textContent = currentWord;
-	document.querySelector("#rem-guesses").textContent = remGuesses;
-	document.querySelector("#wins").textContent = wins;
+	document.querySelector("#rem-guesses").textContent = remaingGuesses;
+	document.querySelector("#wins").textContent = winCount;
 	document.querySelector("#letters-used").textContent = usedLetters;
 }
 
-document.onkeyup = function(event) {
-//	user presses a key
-//		if key pressed is a letter
-//			handleGuess(lcase letter pressed)
+// === run on initial load ===
+initNewRound();
 
-	console.log(String.fromCharCode(event.keyCode));
+document.onkeyup = function(event) {
+
+	// keys a through z
+	if ( event.keyCode >= 65 && event.keyCode <= 90 ){
+		// handleGuess(event.key.toLowerCase());
+		console.log(event.key);
+	}
 
 };
 
