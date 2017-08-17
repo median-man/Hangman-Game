@@ -1,11 +1,6 @@
-// === global variables ===
-var oAnswer;
+// === global vars ===
 var startingGuesses = 13;
-var wins = 0;
 
-var arrUsedLetters, remGuesses, curWord;
-
-//=== objects ===
 /*
 view
 all aspects and functions of the display
@@ -32,6 +27,10 @@ var view = (function() {
         };
     } )();
     return {
+        alert: function(msg) {
+            // dipslays important message to the user
+            alert(msg);
+        },
         render: function(arrWord, iGuessesLeft, iWins, arrLetters) {
             // renders the game to the page
 
@@ -56,27 +55,16 @@ var view = (function() {
             image.hide();
         }
     }
-
-
 })();
 
 /*
 game
 controls game and contains all game logic
 */
-var game = {
-    newRound: function() {
-        // resets the values to start a new round
-        arrUsedLetters = [];
-        oAnswer = data.pop();
-        remGuesses = startingGuesses;
-        if (!oAnswer) {
-            alert("All out of words! Refresh your browser to keep playing.");
-        } else {
-            curWord = "_".repeat(oAnswer.word.length).split("");
-        }        
-    },
-    handleGuess: function (letter) {
+var game = (function() {
+    var oAnswer, arrUsedLetters, remGuesses, curWord, wins;
+    var wins = 0;
+    var handleGuess = function (letter) {
         // handles letter guessed by user
         if (arrUsedLetters.indexOf(letter) === -1) {
             remGuesses--;
@@ -85,7 +73,7 @@ var game = {
                 for (var i = 0; i < oAnswer.word.length; i++) {
                     if (oAnswer.word[i].toLowerCase() === letter) {
                         // replace _ with letter from oAnswer 
-                        // (this way case is correct)
+                        // (this way case displays correctly)
                         curWord[i] = oAnswer.word[i];
                     }
                 }
@@ -95,26 +83,43 @@ var game = {
                 wins++;
                 view.renderImage(oAnswer.image, oAnswer.alt);
                 view.render(curWord, remGuesses, wins, arrUsedLetters);
-                game.newRound();
+                newRound();
             } else if (remGuesses === 0) {
                 view.hideImage();
-                this.newRound();
+                newRound();
             }
             view.render(curWord, remGuesses, wins, arrUsedLetters);
         }        
     }
-};
-
-// === event listenrs ===
-document.onkeyup = function(event) {
-    // keys a through z
-    if (event.keyCode >= 65 && event.keyCode <= 90) {
-        game.handleGuess(event.key.toLowerCase());
+    var newRound = function() {
+        // resets the values to start a new round
+        arrUsedLetters = [];
+        oAnswer = data.pop();
+        remGuesses = startingGuesses;
+        if (!oAnswer) {
+            // all words from data exhausted. alert the user and reload the page.
+            view.alert("Game over. Restarting the game.");
+            location.reload();
+        } else {
+            curWord = "_".repeat(oAnswer.word.length).split("");
+        }        
     }
+    return {
+        run: function() {
 
-};
+            // listen for letter keys
+            document.onkeyup = function(event) {
+                // keys a through z
+                if (event.keyCode >= 65 && event.keyCode <= 90) {
+                    handleGuess(event.key.toLowerCase());
+                }
+            };
+            newRound();
+            view.render(curWord, remGuesses, wins, arrUsedLetters);
+        }
+    };
+})();
 
-// === code below this point runs on initial load ===
-game.newRound();
-view.render(curWord, remGuesses, wins, arrUsedLetters);
+// start the game
+game.run();
 
