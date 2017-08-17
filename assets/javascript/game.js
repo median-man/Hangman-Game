@@ -55,17 +55,24 @@ var view = {
 
 };
 
+var game = {
+    newRound: function() {
+        // resets the values to start a new round
+        arrUsedLetters = [];
+        oAnswer = data.pop();
+        remGuesses = startingGuesses;
+        if (!oAnswer) {
+            alert("All out of words! Refresh your browser to keep playing.");
+        } else {
+            curWord = "_".repeat(oAnswer.word.length).split("");
+        }
+        
+    }
+};
+
+
 // === functions ===
 function initNewRound() {
-    // resets the values to start a new round
-    arrUsedLetters = [];
-    oAnswer = data.pop();
-    remGuesses = startingGuesses;
-    if (!oAnswer) {
-        alert("All out of words! Refresh your browser to keep playing.");
-    } else {
-        curWord = "_".repeat(oAnswer.word.length).split("");
-    }
 }
 
 function handleGuess(letter) {
