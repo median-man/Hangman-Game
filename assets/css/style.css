@@ -1,6 +1,6 @@
  /*color pallette https://goo.gl/EnpMdo*/
 
- @import url('https://fonts.googleapis.com/css?family=Old+Standard+TT|Oswald');
+ /*@import url('https://fonts.googleapis.com/css?family=Old+Standard+TT|Oswald');*/
 
  body {
      font-family: 'Old Standard TT', serif;
@@ -23,6 +23,6 @@
      min-width: 560px;
  }
 
- header .container {
+header {
      background-color: #506546;
  }
